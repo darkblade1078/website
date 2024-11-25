@@ -7,14 +7,12 @@ Sapphire offers a custom [`ApiResponse`] with useful methods for returning data.
 to return JSON data with a status of 200 (OK):
 
 ```typescript ts2esm2cjs|{5-7}
-import { methods, Route, type ApiRequest, type ApiResponse } from '@sapphire/plugin-api';
+import { Route } from '@sapphire/plugin-api';
 
 export class MyRoute extends Route {
-  public [methods.GET](request: ApiRequest, response: ApiResponse) {
-    return response.json({
-      myBestFriend: 'Sapphire'
-    });
-  }
+	public run(request: Route.Request, response: Route.Response) {
+		response.json({ message: 'Hello World' });
+	}
 }
 ```
 
